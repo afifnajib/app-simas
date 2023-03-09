@@ -23,16 +23,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/student', [StudentController::class, 'index'])->name('students.student');
+    Route::get('/student/create', [StudentController::class, 'create'])->name('students.create');
+    Route::post('/student/store', [StudentController::class, 'store'])->name('students.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-// Route::get('/student', function () {
-//     return view('students.student');
-// })->middleware(['auth', 'verified'])->name('students.student');
 
 require __DIR__.'/auth.php';

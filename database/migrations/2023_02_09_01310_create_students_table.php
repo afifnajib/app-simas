@@ -15,19 +15,8 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('user_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');
-            $table->unsignedBigInteger('mother_id');
-            $table->foreign('mother_id')->references('id')->on('mothers');
-                // ->constrained()
-                // ->onUpdate('cascade')
-                // ->onDelete('cascade');
-            // $table->foreignId('father_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('name', 100);
             $table->char('nipd', 10);
             $table->enum('gender', ['L', 'P']);

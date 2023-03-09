@@ -10,7 +10,7 @@
         <div class="max-w-8xl mx-auto sm:px-10 lg:px-12">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{}}" target="_blank" rel="noopener noreferrer">Tambah Student</a>
+                    <a href="{{ route('students.create') }}" rel="noopener noreferrer">Tambah Student</a>
                 </div>
             </div>
         </div>
